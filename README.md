@@ -1,6 +1,6 @@
 # DewStrings
 
-An extension for the string class for .net
+An extension for the string class in .net
 
 ## Methods
 
