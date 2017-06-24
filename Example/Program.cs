@@ -16,6 +16,12 @@ namespace Example
             Console.WriteLine("Remove first: " + first.RemoveFirstCharacter());
             Console.WriteLine("Remove last: " + first.RemoveLastCharacter());
             Console.WriteLine("Remove at 5: " + first.RemoveCharacterAt(5));
+            Console.WriteLine("Random : " + first.RandomString().RemoveChar(' '));
+            Console.WriteLine("Remove Space : " + first.RemoveChar(' '));
+            Console.WriteLine("guard : " + first.HasSubstring("guard"));
+            Console.WriteLine("guard : " + first.HasSubstring("Guard"));
+            Console.WriteLine("guard : " + first.HasSubstringInsensitive("guard"));
+            Console.WriteLine("guard : " + first.HasSubstringInsensitive("Guard"));
             Console.ReadLine();
         }
     }

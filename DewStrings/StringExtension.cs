@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace DewExtensions
@@ -34,7 +36,7 @@ namespace DewExtensions
         {
             var words = s.Split(' ');
             var result = string.Empty;
-            return result.ConcatWithChar(words,' ');
+            return result.ConcatWithChar(words, ' ');
         }
         /// <summary>
         /// Check if a string is empty or null
@@ -73,6 +75,32 @@ namespace DewExtensions
             return s + concat + toConcat;
         }
         /// <summary>
+        /// Concat directly the strings to the current
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="strings"></param>
+        /// <param name="concat"></param>
+        /// <returns></returns>
+        public static string ConcatWithoutChar(this string s, string[] strings, char concat = ' ')
+        {
+            var result = string.Empty;
+            foreach (var item in strings)
+            {
+                result = result.ConcatWithoutChar(item);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Contact directly the string to the current
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="toConcat"></param>
+        /// <returns></returns>
+        public static string ConcatWithoutChar(this string s, string toConcat)
+        {
+            return s + toConcat;
+        }
+        /// <summary>
         /// Remove last character from the string
         /// </summary>
         /// <param name="s"></param>
@@ -88,7 +116,7 @@ namespace DewExtensions
         /// <returns></returns>
         public static string RemoveFirstCharacter(this string s)
         {
-            return s.Substring(1, s.Length-1);
+            return s.Substring(1, s.Length - 1);
         }
         /// <summary>
         /// Remove a character to a position
@@ -98,7 +126,67 @@ namespace DewExtensions
         /// <returns></returns>
         public static string RemoveCharacterAt(this string s, int index)
         {
-            return s.Substring(0, index-1) + s.Substring(index, s.Length-index);
+            return s.Substring(0, index - 1) + s.Substring(index, s.Length - index);
+        }
+        /// <summary>
+        /// Generate a random string from the current string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string RandomString(this string s)
+        {
+            Random random = new Random();
+            return new string(Enumerable.Repeat(s, s.Length)
+              .Select(x => x[random.Next(s.Length)]).ToArray());
+        }
+        /// <summary>
+        /// Remove all occurence of a char from the string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="toRemove"></param>
+        /// <returns></returns>
+        public static string RemoveChar(this string s, char toRemove)
+        {
+            return s.ConcatWithoutChar(s.Split(toRemove));
+        }
+        /// <summary>
+        /// Check if the string has a substring
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
+        public static bool HasSubstring(this string s, string substring)
+        {
+            return Regex.IsMatch(s, @".*" + substring + @".*");
+        }
+        /// <summary>
+        /// Check if the string has a substring, case insensitive
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="substring"></param>
+        /// <returns></returns>
+        public static bool HasSubstringInsensitive(this string s, string substring)
+        {
+            return Regex.IsMatch(s, @".*" + substring + @".*",RegexOptions.IgnoreCase);
+        }
+        /// <summary>
+        /// Return string as stream
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static Stream ToStream(this string s)
+        {
+            return new MemoryStream(s.ToBytes());
+        }
+        /// <summary>
+        /// Return string as bytes array
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static byte[] ToBytes(this string s)
+        {
+            var bytes = new System.Text.UTF8Encoding().GetBytes(s);
+            return bytes;
         }
     }
 }
