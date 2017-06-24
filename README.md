@@ -21,3 +21,19 @@ An extension for the string class for .net
 - __HasSubstringInsensitive__ : Check if the string has a substring (case insensitive)
 - __ToStream__ : Convert string to stream
 - __ToBytes__ : Convert string to bytes array
+
+##### Note: This is a class estension
+You can use it with dot notation from a string, 
+```c#
+var myString = "pippo".Capitalize();
+//now myString is "Pippo"
+```
+## NuGet
+You can find it on nuget with the name [DewRESTClient](https://www.nuget.org/packages/DewStrings)
+
+## About
+[Andrea Vincenzo Abbondanza](http://www.andrewdev.eu)
+
+## Donate
+[Help me to grow up, if you want](https://payPal.me/andreabbondanza)
+
