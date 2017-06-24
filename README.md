@@ -1,2 +1,3 @@
 # DewStrings
-String extension
+
+An extension for the string class for .net
