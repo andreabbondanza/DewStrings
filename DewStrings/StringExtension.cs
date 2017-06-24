@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace DewExtensions
@@ -167,7 +168,7 @@ namespace DewExtensions
         /// <returns></returns>
         public static bool HasSubstringInsensitive(this string s, string substring)
         {
-            return Regex.IsMatch(s, @".*" + substring + @".*",RegexOptions.IgnoreCase);
+            return Regex.IsMatch(s, @".*" + substring + @".*", RegexOptions.IgnoreCase);
         }
         /// <summary>
         /// Return string as stream
@@ -187,6 +188,48 @@ namespace DewExtensions
         {
             var bytes = new System.Text.UTF8Encoding().GetBytes(s);
             return bytes;
+        }
+        /// <summary>
+        /// Return the string urlencoded
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToEncodeUrl(this string s)
+        {
+            return WebUtility.UrlEncode(s);
+        }
+        /// <summary>
+        /// Return the string urldecoded
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToDecodeUrl(this string s)
+        {
+            return WebUtility.UrlEncode(s);
+        }
+        /// <summary>
+        /// Check if the string is a valid http url
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static bool IsValidHttpUrl(this string url)
+        {
+            bool Result = false;
+            Uri MyUri = null;
+            try
+            {
+                MyUri = new Uri(url);
+            }
+            catch (UriFormatException)
+            {
+                MyUri = null;
+            }
+            if (MyUri != null)
+            {
+                if (MyUri.Scheme.ToLower() == "http" || MyUri.Scheme.ToLower() == "https")
+                    Result = true;
+            }
+            return Result;
         }
     }
 }
