@@ -30,6 +30,9 @@ An extension for the string class in .net
 - __ToFloat__: Return the string like an float (default value args)
 - __WordCount__ : Count the word in a string
 - __RemoveDuplicateSpaces__ : Remove duplicated spaces and tabs
+- __ToEmptyIfNull__ : Return the empty string (to prevent NullRefernceException)
+- __GetFileExtension__ : Return the file extension for a path
+- __CountCharacters__ : Return the number of characters into the string
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 

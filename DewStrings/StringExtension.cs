@@ -340,5 +340,33 @@ namespace DewExtensions
             }
             return output.RemoveLastCharacter() ;
         }
+        /// <summary>
+        /// Return the empty string (to prevent NullRefernceException)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToEmptyIfNull(this string s)
+        {
+            return s == null ? string.Empty : s;
+        }
+        /// <summary>
+        /// Return the file extension for a path
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetFileExtension(this string s)
+        {
+            return Path.GetExtension(s);
+        }
+        /// <summary>
+        /// Count the characters into a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public static int CountCharacters(this string s, char character = ' ')
+        {
+            return Regex.Matches(s,$"{character}").Count;
+        }
     }
 }

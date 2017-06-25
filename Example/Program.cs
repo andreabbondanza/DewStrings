@@ -6,7 +6,9 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            string first = "le persone guardano       i film al cinema  senza fare rumore";
+            string first = "le persone guardano       i film al cinema  senza fare rumore\n places";
+            string second = null;
+            string path = "c:/asdas d/.net/file/file.css";
             Console.WriteLine(first);
             Console.WriteLine("Capitalized:" + first.Capitalize());
             Console.WriteLine("Capitalized all:" + first.CapitalizeAllWords());
@@ -29,6 +31,12 @@ namespace Example
             Console.WriteLine("float : " + "5,364".ToFloat());
             Console.WriteLine("Word count : " + first.WordCount('i'));
             Console.WriteLine("Duplicate spaces: " + first.RemoveDuplicateSpaces());
+            Console.WriteLine("Empty string from null: " + second.ToEmptyIfNull().Split(' '));
+            Console.WriteLine("File extension: " + path.GetFileExtension());
+            Console.WriteLine("Add price :" + "304".ConcatWithoutChar("$"));
+            Console.WriteLine("Count spaces:" + first.CountCharacters());
+            Console.WriteLine("Count i:" + first.CountCharacters('i'));
+            Console.WriteLine("Count i:" + first.CountCharacters('\n'));
             Console.ReadLine();
         }
     }
