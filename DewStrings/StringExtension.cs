@@ -194,7 +194,7 @@ namespace DewExtensions
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string ToEncodeUrl(this string s)
+        public static string ToEncodedUrl(this string s)
         {
             return WebUtility.UrlEncode(s);
         }
@@ -203,7 +203,7 @@ namespace DewExtensions
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string ToDecodeUrl(this string s)
+        public static string ToDecodedUrl(this string s)
         {
             return WebUtility.UrlEncode(s);
         }

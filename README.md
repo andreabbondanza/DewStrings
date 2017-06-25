@@ -21,8 +21,8 @@ An extension for the string class in .net
 - __HasSubstringInsensitive__ : Check if the string has a substring (case insensitive)
 - __ToStream__ : Convert string to stream
 - __ToBytes__ : Convert string to bytes array
-- __ToEncodeUrl__ : Encode the url
-- __ToDecodeUrl__ : Decode the url
+- __ToEncodedUrl__ : Encode the url
+- __ToDecodedUrl__ : Decode the url
 - __IsValidHttpUrl__ : Check if the string is a valid HTTP Url
 
 ##### Note: This is a class estension
