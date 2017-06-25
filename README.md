@@ -32,7 +32,7 @@ var myString = "pippo".Capitalize();
 //now myString is "Pippo"
 ```
 ## NuGet
-You can find it on nuget with the name [DewRESTClient](https://www.nuget.org/packages/DewStrings)
+You can find it on nuget with the name [DewStrings](https://www.nuget.org/packages/DewStrings)
 
 ## About
 [Andrea Vincenzo Abbondanza](http://www.andrewdev.eu)
