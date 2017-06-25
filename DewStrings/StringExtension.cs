@@ -83,9 +83,8 @@ namespace DewExtensions
         /// </summary>
         /// <param name="s"></param>
         /// <param name="strings"></param>
-        /// <param name="concat"></param>
         /// <returns></returns>
-        public static string ConcatWithoutChar(this string s, string[] strings, char concat = ' ')
+        public static string ConcatWithoutChar(this string s, string[] strings)
         {
             var result = string.Empty;
             foreach (var item in strings)
@@ -103,6 +102,33 @@ namespace DewExtensions
         public static string ConcatWithoutChar(this string s, string toConcat)
         {
             return s + toConcat;
+        }
+        /// <summary>
+        /// Concat the current string with selected string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="strings"></param>
+        /// <param name="concat"></param>
+        /// <returns></returns>
+        public static string ConcatWithString(this string s, string[] strings, string concat = " ")
+        {
+            var result = string.Empty;
+            foreach (var item in strings)
+            {
+                result = result.ConcatWithChar(item, concat);
+            }
+            return result.Substring(concat.Length, result.Length - concat.Length);
+        }
+        /// <summary>
+        /// Concat the current string with selected character
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="toConcat"></param>
+        /// <param name="concat"></param>
+        /// <returns></returns>
+        public static string ConcatWithChar(this string s, string toConcat, string concat = " ")
+        {
+            return s + concat + toConcat;
         }
         /// <summary>
         /// Remove last character from the string
@@ -233,6 +259,86 @@ namespace DewExtensions
                     Result = true;
             }
             return Result;
+        }
+        /// <summary>
+        /// Parse to int
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static int ToInt(this string s, int def = 0)
+        {
+            int result = def;
+            int.TryParse(s, out result);
+            return result;
+        }
+        /// <summary>
+        /// Parse to long
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static long ToLong(this string s, long def = 0)
+        {
+            long result = def;
+            long.TryParse(s, out result);
+            return result;
+        }
+        /// <summary>
+        /// Parse to double
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static double ToDouble(this string s, double def = 0.0)
+        {
+            double result = def;
+            double.TryParse(s, out result);
+            return result;
+        }
+        /// <summary>
+        /// Parse to float
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="def"></param>
+        /// <returns></returns>
+        public static float ToFloat(this string s, float def = 0.0f)
+        {
+            float result = def;
+            float.TryParse(s, out result);
+            return result;
+        }
+        /// <summary>
+        /// Count the word in the string (default separated by space)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static int WordCount(this string s, char separator = ' ')
+        {
+            var strings = s.Split(separator);
+            int output = 0;
+            foreach (var item in strings)
+            {
+                output = item.IsNullOrEmpty() ? output : output + 1;
+            }
+            return output;
+        }
+        /// <summary>
+        /// Remove duplicated spaces and tabs
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string RemoveDuplicateSpaces(this string s)
+        {
+            var strings = s.Split(' ');
+            string output = string.Empty;
+            foreach (var item in strings)
+            {
+                if (!item.IsNullOrEmpty())
+                    output = output + item + " ";
+            }
+            return output.RemoveLastCharacter() ;
         }
     }
 }

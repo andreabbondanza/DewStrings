@@ -24,6 +24,12 @@ An extension for the string class in .net
 - __ToEncodedUrl__ : Encode the url
 - __ToDecodedUrl__ : Decode the url
 - __IsValidHttpUrl__ : Check if the string is a valid HTTP Url
+- __ToInt__: Return the string like an int (default value args)
+- __ToLong__: Return the string like an long (default value args)
+- __ToDouble__: Return the string like an double (default value args)
+- __ToFloat__: Return the string like an float (default value args)
+- __WordCount__ : Count the word in a string
+- __RemoveDuplicateSpaces__ : Remove duplicated spaces and tabs
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 
