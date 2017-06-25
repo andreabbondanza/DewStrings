@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace DewExtensions
 {
+    /// <summary>
+    /// An extension for strings
+    /// </summary>
     public static class StringExtension
     {
         /// <summary>
