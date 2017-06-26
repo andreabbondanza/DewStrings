@@ -43,6 +43,8 @@ You can use it with dot notation from a string,
 ```c#
 var myString = "pippo".Capitalize();
 //now myString is "Pippo"
+var today = "today is  a great day and i'm here!".RemoveDuplicateSpaces().CapitalizeAllWords();
+//now today is "Today Is A Great Day And I'm Here!"
 ```
 ## NuGet
 You can find it on nuget with the name [DewStrings](https://www.nuget.org/packages/DewStrings)

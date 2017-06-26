@@ -18,7 +18,9 @@ namespace DewExtensions
         /// <returns></returns>
         public static string Capitalize(this string s)
         {
-            return s.First().ToString().ToUpper() + s.Substring(1, s.Length - 1);
+            if(!s.IsNullOrEmpty())
+                return s.First().ToString().ToUpper() + s.Substring(1, s.Length - 1);
+            return string.Empty;
         }
         /// <summary>
         /// Check if a mail is valid
@@ -40,7 +42,11 @@ namespace DewExtensions
         {
             var words = s.Split(' ');
             var result = string.Empty;
-            return result.ConcatWithChar(words, ' ');
+            foreach (var item in words)
+            {
+                result = result.ConcatWithChar(item.Capitalize(), ' ');
+            }
+            return result;
         }
         /// <summary>
         /// Check if a string is empty or null

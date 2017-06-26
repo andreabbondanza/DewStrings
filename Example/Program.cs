@@ -9,6 +9,7 @@ namespace Example
             string first = "le persone guardano       i film al cinema  senza fare rumore\n places";
             string second = null;
             string path = "c:/asdas d/.net/file/file.css";
+            var today = "today is  a great day and i'm here!";
             Console.WriteLine(first);
             Console.WriteLine("Capitalized:" + first.Capitalize());
             Console.WriteLine("Capitalized all:" + first.CapitalizeAllWords());
@@ -39,6 +40,7 @@ namespace Example
             Console.WriteLine("Count i:" + first.CountCharacters('\n'));
             Console.WriteLine("IsNumber :" + "4324".IsNumber());
             Console.WriteLine("IsAlfa :" + "4a324".IsAlphanumeric());
+            Console.WriteLine("last :" + today.CapitalizeAllWords().RemoveDuplicateSpaces());
             Console.ReadLine();
         }
     }
