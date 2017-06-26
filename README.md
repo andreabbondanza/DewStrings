@@ -33,6 +33,10 @@ An extension for the string class in .net
 - __ToEmptyIfNull__ : Return the empty string (to prevent NullRefernceException)
 - __GetFileExtension__ : Return the file extension for a path
 - __CountCharacters__ : Return the number of characters into the string
+- __IsMatch__ : Quick match for regexp
+- __IsNumber__ : Quick check if string is a valid number
+- __IsAlphanumeric__ : Quick check if string is alphanumeric
+- __IsAlphabetic__ : Quick check if string is alphabetic
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 

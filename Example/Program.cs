@@ -37,6 +37,8 @@ namespace Example
             Console.WriteLine("Count spaces:" + first.CountCharacters());
             Console.WriteLine("Count i:" + first.CountCharacters('i'));
             Console.WriteLine("Count i:" + first.CountCharacters('\n'));
+            Console.WriteLine("IsNumber :" + "4324".IsNumber());
+            Console.WriteLine("IsAlfa :" + "4a324".IsAlphanumeric());
             Console.ReadLine();
         }
     }

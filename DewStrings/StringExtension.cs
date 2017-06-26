@@ -368,5 +368,43 @@ namespace DewExtensions
         {
             return Regex.Matches(s,$"{character}").Count;
         }
+        /// <summary>
+        /// Quick match for regexp
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static bool IsMatch(this string s, string pattern, RegexOptions options = RegexOptions.None)
+        {
+            return Regex.IsMatch(s, pattern, options);
+        }
+        /// <summary>
+        /// Quick check if string is a valid number
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsNumber(this string s)
+        {
+            return s.IsMatch("^[0-9]+[.,]{0,1}[0-9]*$");
+        }
+        /// <summary>
+        /// Quick check if string is alphanumeric
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsAlphanumeric(this string s)
+        {
+            return s.IsMatch("^[a-zA-Z0-9]+$");
+        }
+        /// <summary>
+        /// Quick check if string is alphabetic
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsAlphabetic(this string s)
+        {
+            return s.IsMatch("^[a-zA-Z]+$");
+        }
     }
 }
