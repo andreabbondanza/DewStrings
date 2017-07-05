@@ -10,6 +10,8 @@ namespace Example
             string second = null;
             string path = "c:/asdas d/.net/file/file.css";
             var today = "today is  a great day and i'm here!";
+            var name = "andrea Andrea ANDREA";
+            var format = "There are {0} people in these {1} houses";
             Console.WriteLine(first);
             Console.WriteLine("Capitalized:" + first.Capitalize());
             Console.WriteLine("Capitalized all:" + first.CapitalizeAllWords());
@@ -26,8 +28,8 @@ namespace Example
             Console.WriteLine("guard : " + first.HasSubstring("Guard"));
             Console.WriteLine("guard : " + first.HasSubstringInsensitive("guard"));
             Console.WriteLine("guard : " + first.HasSubstringInsensitive("Guard"));
-            Console.WriteLine("int : "+ "5".ToInt());
-            Console.WriteLine("long : "+ "5".ToLong());
+            Console.WriteLine("int : " + "5".ToInt());
+            Console.WriteLine("long : " + "5".ToLong());
             Console.WriteLine("double : " + "5,54".ToDouble());
             Console.WriteLine("float : " + "5,364".ToFloat());
             Console.WriteLine("Word count : " + first.WordCount('i'));
@@ -41,6 +43,13 @@ namespace Example
             Console.WriteLine("IsNumber :" + "4324".IsNumber());
             Console.WriteLine("IsAlfa :" + "4a324".IsAlphanumeric());
             Console.WriteLine("last :" + today.CapitalizeAllWords().RemoveDuplicateSpaces());
+            Console.WriteLine("ellipsis :" + today.EllipsisEnd(10));
+            foreach (var item in name.ToBytes())
+            {
+                Console.WriteLine("To ascii :" + item);
+            }
+            Console.WriteLine("format :" + format.Formatted("4", "5"));
+            Console.Write("".Batman());
             Console.ReadLine();
         }
     }

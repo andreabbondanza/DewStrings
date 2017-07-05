@@ -18,7 +18,7 @@ namespace DewExtensions
         /// <returns></returns>
         public static string Capitalize(this string s)
         {
-            if(!s.IsNullOrEmpty())
+            if (!s.IsNullOrEmpty())
                 return s.First().ToString().ToUpper() + s.Substring(1, s.Length - 1);
             return string.Empty;
         }
@@ -85,6 +85,17 @@ namespace DewExtensions
             return s + concat + toConcat;
         }
         /// <summary>
+        /// Concat the current string with selected string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="toConcat"></param>
+        /// <param name="concat"></param>
+        /// <returns></returns>
+        public static string ConcatWithString(this string s, string toConcat, string concat = " ")
+        {
+            return s + concat + toConcat;
+        }
+        /// <summary>
         /// Concat directly the strings to the current
         /// </summary>
         /// <param name="s"></param>
@@ -121,7 +132,7 @@ namespace DewExtensions
             var result = string.Empty;
             foreach (var item in strings)
             {
-                result = result.ConcatWithChar(item, concat);
+                result = result.ConcatWithString(item, concat);
             }
             return result.Substring(concat.Length, result.Length - concat.Length);
         }
@@ -344,7 +355,7 @@ namespace DewExtensions
                 if (!item.IsNullOrEmpty())
                     output = output + item + " ";
             }
-            return output.RemoveLastCharacter() ;
+            return output.RemoveLastCharacter();
         }
         /// <summary>
         /// Return the empty string (to prevent NullRefernceException)
@@ -372,7 +383,7 @@ namespace DewExtensions
         /// <returns></returns>
         public static int CountCharacters(this string s, char character = ' ')
         {
-            return Regex.Matches(s,$"{character}").Count;
+            return Regex.Matches(s, $"{character}").Count;
         }
         /// <summary>
         /// Quick match for regexp
@@ -411,6 +422,60 @@ namespace DewExtensions
         public static bool IsAlphabetic(this string s)
         {
             return s.IsMatch("^[a-zA-Z]+$");
+        }
+        /// <summary>
+        /// Return the ellipsis substring if string lenght is > than maxLength
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="maxLenght"></param>
+        /// <returns></returns>
+        public static string EllipsisEnd(this string s, int maxLenght)
+        {
+            return s.Length >= maxLenght ? s.Substring(0, maxLenght).TrimEnd().ConcatWithoutChar("...") : s;
+        }
+        /// <summary>
+        /// Format a string with args
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static string Formatted(this string s, params object[] args)
+        {
+            return String.Format(s, args);
+        }
+        /// <summary>
+        /// Generate batman logo :)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string Batman(this string s)
+        {
+            return "" +
+            "                   `-/.                                    `::.\n" +
+            "               `:ohNMy`                                       :mNds /`        \n" +
+            "            .+hMMMMMh                 :      /                 .MMMMMms -\n" +
+            "          /dMMMMMMMMd                 do     +m                 :MMMMMMMMmo`          \n" +
+            "        +NMMMMMMMMMMMd:               MM -``.NM`              `oMMMMMMMMMMMMs.\n" +
+            "      :mMMMMMMMMMMMMMMMms:`          -MMMMMMMM /           .+ hMMMMMMMMMMMMMMMNo\n" +
+            "     oMMMMMMMMMMMMMMMMMMMMMmyo /:.`   oMMMMMMMMs    `-:+sdNMMMMMMMMMMMMMMMMMMMMh`           \n" +
+            "    sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmmNMMMMMMMMNdmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd`      \n" +
+            "   / MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy\n" +
+            "   dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.\n" +
+            "   y +:-.````.:/ sdMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmy +:-`````.:+s -\n" +
+            "                 `/ dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo.\n" +
+            "                    + MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy`       \n" +
+            "                     +ho /:-..-:+sdMMMMMMMMMMMMMMMMmyo / --.-- / oyh\n" +
+            "                                  `/ hMMMMMMMMMMm +.\n" +
+            "                                     .hMMMMMMm:                                             \n" +
+            "                                       :NMMMo\n" +
+            "                                        .mM /\n" +
+            "                                         ./";
+
+
+
+
+
+
         }
     }
 }
