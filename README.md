@@ -37,6 +37,8 @@ An extension for the string class in .net
 - __IsNumber__ : Quick check if string is a valid number
 - __IsAlphanumeric__ : Quick check if string is alphanumeric
 - __IsAlphabetic__ : Quick check if string is alphabetic
+- __EllipsisEnd__: Add the ellipsis if the string has length > maxLength
+- __Formatted__: Return the string formatted with the arguments
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 
