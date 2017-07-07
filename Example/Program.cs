@@ -8,10 +8,13 @@ namespace Example
         {
             string first = "le persone guardano       i film al cinema  senza fare rumore\n places";
             string second = null;
+            string dict = "var=val&var1=val1&var2=val2&";
             string path = "c:/asdas d/.net/file/file.css";
+            string query = @"Luca ""mangia \ l'ara""nci\a";
             var today = "today is  a great day and i'm here!";
             var name = "andrea Andrea ANDREA";
             var format = "There are {0} people in these {1} houses";
+            var palindrome = "I topi non avevano nipoti";
             Console.WriteLine(first);
             Console.WriteLine("Capitalized:" + first.Capitalize());
             Console.WriteLine("Capitalized all:" + first.CapitalizeAllWords());
@@ -49,6 +52,13 @@ namespace Example
                 Console.WriteLine("To ascii :" + item);
             }
             Console.WriteLine("format :" + format.Formatted("4", "5"));
+            Console.WriteLine("specular :" + name.Specular());
+            foreach (var item in dict.GetDictionary())
+            {
+                Console.WriteLine("To dict :" + item.Key + " " + item.Value);
+            }
+            Console.WriteLine("addslashes :" + query.AddSlashes());
+            Console.WriteLine("Palindrome :" + palindrome.IsPalindrome());
             Console.Write("".Batman());
             Console.ReadLine();
         }

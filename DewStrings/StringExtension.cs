@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -444,6 +445,66 @@ namespace DewExtensions
             return String.Format(s, args);
         }
         /// <summary>
+        /// Return the specular
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string Specular(this string s)
+        {
+            string result = string.Empty;
+            for (int i = s.Length - 1; i >= 0; i--)
+            {
+                result = result.ConcatWithChar(string.Empty, s[i]);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Return a dictionary from a string with structure var{valueSeparator}val{separator}var1{valueSeparator}val1{separator}... (ex. a query string)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="valueSeparator"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static Dictionary<string, string> GetDictionary(this string s, char valueSeparator = '=', char separator = '&')
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            var coll = s.Split(separator);
+            foreach (var item in coll)
+            {
+                if (!item.IsNullOrEmpty())
+                {
+                    var curr = item.Split(valueSeparator);
+                    if (curr.Length == 2)
+                        dict.Add(item.Split(valueSeparator)[0], item.Split(valueSeparator)[1]);
+                }
+            }
+            return dict;
+
+        }
+        /// <summary>
+        /// Add slashes to ',",\
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string AddSlashes(this string s)
+        {
+            string q = "'";
+            string dq = @"""";
+            string sl = @"\";
+            return s.Replace(sl, @"\\").Replace(q, @"\'").Replace(dq, "\\\"");
+        }
+        /// <summary>
+        /// Return true if string is a palindrom (no case sensitive)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsPalindrome(this string s)
+        {
+            if (s.RemoveChar(' ').ToLower() == s.RemoveChar(' ').Specular().ToLower())
+                return true;
+            return false;
+        }
+        /// <summary>
         /// Generate batman logo :)
         /// </summary>
         /// <param name="s"></param>
@@ -456,7 +517,7 @@ namespace DewExtensions
             "            .+hMMMMMh                 :      /                 .MMMMMms -\n" +
             "          /dMMMMMMMMd                 do     +m                 :MMMMMMMMmo`          \n" +
             "        +NMMMMMMMMMMMd:               MM -``.NM`              `oMMMMMMMMMMMMs.\n" +
-            "      :mMMMMMMMMMMMMMMMms:`          -MMMMMMMM /           .+ hMMMMMMMMMMMMMMMNo\n" +
+            "      :mMMMMMMMMMMMMMMMms:`           -MMMMMMMM/           .+ hMMMMMMMMMMMMMMMNo\n" +
             "     oMMMMMMMMMMMMMMMMMMMMMmyo /:.`   oMMMMMMMMs    `-:+sdNMMMMMMMMMMMMMMMMMMMMh`           \n" +
             "    sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmmNMMMMMMMMNdmNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd`      \n" +
             "   / MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy\n" +
