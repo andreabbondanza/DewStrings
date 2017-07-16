@@ -504,6 +504,11 @@ namespace DewExtensions
                 return true;
             return false;
         }
+        public static string Compact(this string s, int length)
+        {
+            var middle = (int)Math.Ceiling((double)(length - 3) / 2);
+            return s.EllipsisEnd(middle).ConcatWithoutChar(s.Substring(s.Length - middle, middle));
+        }
         /// <summary>
         /// Generate batman logo :)
         /// </summary>

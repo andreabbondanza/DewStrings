@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.6.0</Version>
+    <Version>1.7.0</Version>
     <Authors>Andrea Vincenzo Abbondanza</Authors>
     <Company>Dew Studio</Company>
     <Description>An extension for string class in .net standard</Description>
@@ -13,9 +13,9 @@
     <PackageTags>strings, .net, .net standard, c#</PackageTags>
     <PackageIconUrl>http://andrewdev.eu/wp-content/uploads/2016/08/OnlyLogo.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/andreabbondanza/DewStrings</PackageProjectUrl>
-    <AssemblyVersion>1.6.0.0</AssemblyVersion>
-    <FileVersion>1.6.0.0</FileVersion>
-    <PackageReleaseNotes>Fixed Capitalized All Words and fixed empty sequence for capitalize</PackageReleaseNotes>
+    <AssemblyVersion>1.7.0.0</AssemblyVersion>
+    <FileVersion>1.7.0.0</FileVersion>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

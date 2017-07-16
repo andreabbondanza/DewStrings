@@ -59,6 +59,7 @@ namespace Example
             }
             Console.WriteLine("addslashes :" + query.AddSlashes());
             Console.WriteLine("Palindrome :" + palindrome.IsPalindrome());
+            Console.WriteLine("Compact :" + palindrome.Compact(9));
             Console.Write("".Batman());
             Console.ReadLine();
         }
