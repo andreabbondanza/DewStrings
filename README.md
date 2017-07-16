@@ -41,7 +41,7 @@ An extension for the string class in .net
 - __Formatted__ : Return the string formatted with the arguments
 - __Specular__ : Return the specular string
 - __GetDictionary__ : Return a dictionary from a string with structure var{valueSeparator}val{separator}var1{valueSeparator}val1{separator}... (ex. a query string)
-- __AddSlashes__ : Add slashes to \,',"
+- __AddSlashes__ : Add slashes to \\,',"
 - __IsPalindrome__ : return true if the string is a palindrome
 - __Compact__ : Compat the string in the passed lenght.
 
