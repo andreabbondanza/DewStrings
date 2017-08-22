@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace DewExtensions
+namespace DewCore.Extensions.Strings
 {
     /// <summary>
     /// An extension for strings
@@ -504,10 +504,38 @@ namespace DewExtensions
                 return true;
             return false;
         }
+        /// <summary>
+        /// Compact a string into a length
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public static string Compact(this string s, int length)
         {
             var middle = (int)Math.Ceiling((double)(length - 3) / 2);
             return s.EllipsisEnd(middle).ConcatWithoutChar(s.Substring(s.Length - middle, middle));
+        }
+        /// <summary>
+        /// Return true if string is a valid ipv4
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsValidIpv4(this string s)
+        {
+            if (s != null)
+                return Regex.IsMatch(s, @"^(2[0-5]{1}[0-5]{1}|1[0-9]{1}[0-9]{1}|[0-9]{1}[0-9]{1}|[0-9]{1})\.(2[0-5]{1}[0-5]{1}|1[0-9]{1}[0-9]{1}|[0-9]{1}[0-9]{1}|[0-9]{1})\.(2[0-5]{1}[0-5]{1}|1[0-9]{1}[0-9]{1}|[0-9]{1}[0-9]{1}|[0-9]{1})\.(2[0-5]{1}[0-5]{1}|1[0-9]{1}[0-9]{1}|[0-9]{1}[0-9]{1}|[0-9]{1})$");
+            return false;
+        }
+        /// <summary>
+        /// Return true if string is a valid ipv6
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsValidIpv6(this string s)
+        {
+            if (s != null)
+                return Regex.IsMatch(s, "");
+            return false;
         }
         /// <summary>
         /// Generate batman logo :)
