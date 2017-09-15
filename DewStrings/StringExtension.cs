@@ -571,5 +571,17 @@ namespace DewCore.Extensions.Strings
 
 
         }
+        /// <summary>
+        /// Return an alternative text if string is empty
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="alt">Alternative text</param>
+        /// <returns></returns>
+        public static string Alternative(this string s, string alt)
+        {
+            if (s.IsNullOrEmpty())
+                return alt;
+            return s;
+        }
     }
 }
