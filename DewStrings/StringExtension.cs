@@ -20,7 +20,7 @@ namespace DewCore.Extensions.Strings
         public static string Capitalize(this string s)
         {
             if (!s.IsNullOrEmpty())
-                return s.ToLower().First().ToString().ToUpper() + s.Substring(1, s.Length - 1);
+                return s.First().ToString().ToUpper() + s.ToLower().Substring(1, s.Length - 1);
             return string.Empty;
         }
         /// <summary>

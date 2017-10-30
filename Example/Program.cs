@@ -6,7 +6,7 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            string first = "le persone guardano       i film al cinema  senza fare rumore\n places";
+            string first = "LE ASDAS FDSNJHKER FVDVDF";
             string second = null;
             string dict = "var=val&var1=val1&var2=val2&";
             string path = "c:/asdas d/.net/file/file.css";
