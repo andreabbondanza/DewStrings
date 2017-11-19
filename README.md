@@ -44,8 +44,7 @@ An extension for the string class in .net
 - __AddSlashes__ : Add slashes to \\,',"
 - __IsPalindrome__ : return true if the string is a palindrome
 - __Compact__ : Compat the string in the passed lenght.
-- __ToHtmlDecode__ : Decode an html string
-- __ToHtmlEncode__ : Encode to an html string
+- __Alternative__ : Return an alternative text if string is empty
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 

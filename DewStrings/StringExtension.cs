@@ -20,7 +20,7 @@ namespace DewCore.Extensions.Strings
         public static string Capitalize(this string s)
         {
             if (!s.IsNullOrEmpty())
-                return s.First().ToString().ToUpper() + s.Substring(1, s.Length - 1);
+                return s.First().ToString().ToUpper() + s.ToLower().Substring(1, s.Length - 1);
             return string.Empty;
         }
         /// <summary>
@@ -588,6 +588,18 @@ namespace DewCore.Extensions.Strings
 
 
 
+        }
+        /// <summary>
+        /// Return an alternative text if string is empty
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="alt">Alternative text</param>
+        /// <returns></returns>
+        public static string Alternative(this string s, string alt)
+        {
+            if (s.IsNullOrEmpty())
+                return alt;
+            return s;
         }
     }
 }
