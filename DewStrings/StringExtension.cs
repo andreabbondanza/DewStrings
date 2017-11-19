@@ -538,6 +538,24 @@ namespace DewCore.Extensions.Strings
             return false;
         }
         /// <summary>
+        /// Encode string in html
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHtmlEncode(this string s)
+        {
+            return WebUtility.HtmlEncode(s);
+        }
+        /// <summary>
+        /// Decode string from html
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHtmlDecode(this string s)
+        {
+            return WebUtility.HtmlDecode(s);
+        }
+        /// <summary>
         /// Generate batman logo :)
         /// </summary>
         /// <param name="s"></param>
