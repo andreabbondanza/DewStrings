@@ -47,7 +47,7 @@ namespace DewCore.Extensions.Strings
             {
                 result = result.ConcatWithChar(item.Capitalize(), ' ');
             }
-            return result;
+            return result.Substring(1, result.Length - 1);
         }
         /// <summary>
         /// Check if a string is empty or null
