@@ -601,5 +601,14 @@ namespace DewCore.Extensions.Strings
                 return alt;
             return s;
         }
+        /// <summary>
+        /// Camelize a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string Camelize(this string s)
+        {
+            return Char.ToLower(s.FirstOrDefault()) + s.RemoveFirstCharacter();
+        }
     }
 }
