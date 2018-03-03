@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.2.1</Version>
+    <Version>2.3.0</Version>
     <Authors>Andrea Vincenzo Abbondanza</Authors>
     <Company>Dew Studio</Company>
     <Description>An extension for string class in .net standard</Description>
