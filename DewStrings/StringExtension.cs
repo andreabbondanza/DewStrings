@@ -630,10 +630,10 @@ namespace DewCore.Extensions.Strings
         /// <param name="pattern"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static bool IsValidPassword(this string s, string pattern = "[a-z0-9]{8,}", RegexOptions options = RegexOptions.IgnoreCase)
+        public static bool IsValidPassword(this string s, string pattern = "[A-z0-9]{8,}", RegexOptions options = RegexOptions.Singleline)
         {
             if (s != null)
-                return Regex.IsMatch(s, pattern, options) && s.Length >= 8;
+                return Regex.IsMatch(s, pattern, options);
             return false;
         }
         /// <summary>

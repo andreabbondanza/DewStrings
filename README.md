@@ -48,6 +48,8 @@ An extension for the string class in .net
 - __ToHtmlDecode__ : Return the html decoded string
 - __ToHtmlEncode__ : Return encoded html string
 - __Camelize__ : Return the camelized string
+- __IsValidPassword__ : Check if a string is  avalid password
+- __GetHashString__ : Get hashed string 
 
 ##### Note: This is a class estension
 You can use it with dot notation from a string, 
