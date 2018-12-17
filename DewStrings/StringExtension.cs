@@ -636,6 +636,15 @@ namespace DewCore.Extensions.Strings
                 return Regex.IsMatch(s, pattern, options) && s.Length >= 8;
             return false;
         }
+        /// <summary>
+        /// Camelize a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string Camelize(this string s)
+        {
+            return Char.ToLower(s.FirstOrDefault()) + s.RemoveFirstCharacter();
+        }
 
     }
 }
