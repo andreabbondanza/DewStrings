@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DewCore.Extensions.Strings
@@ -365,7 +367,7 @@ namespace DewCore.Extensions.Strings
         /// <returns></returns>
         public static string ToEmptyIfNull(this string s)
         {
-            return s == null ? string.Empty : s;
+            return s ?? string.Empty;
         }
         /// <summary>
         /// Return the file extension for a path
@@ -601,5 +603,39 @@ namespace DewCore.Extensions.Strings
                 return alt;
             return s;
         }
+        private static byte[] GetHash(string inputString, HashAlgorithm alg)
+        {
+            HashAlgorithm algorithm = alg;
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+        /// <summary>
+        /// Return the SHA256
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <param name="alg">Hash Algorithm (default SHA256)</param>
+        /// <returns></returns>
+        public static string GetHashString(this string inputString, HashAlgorithm alg = null)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (alg == null)
+                alg = SHA256.Create();
+            foreach (byte b in GetHash(inputString, alg))
+                sb.Append(b.ToString("X2"));
+            return sb.ToString();
+        }
+        /// <summary>
+        /// Check if a password is valid
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static bool IsValidPassword(this string s, string pattern = "[a-z0-9]{8,}", RegexOptions options = RegexOptions.IgnoreCase)
+        {
+            if (s != null)
+                return Regex.IsMatch(s, pattern, options) && s.Length >= 8;
+            return false;
+        }
+
     }
 }
